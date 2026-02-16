@@ -75,3 +75,45 @@
 ### Status
 - Sandbox environment cannot authenticate to the private repo
 - User needs to complete the push from their local Windows machine
+
+---
+
+## Session 3 — Bootstrap Prompts & Session Continuity
+
+### Branch
+`claude/new-project-setup-SJjFj`
+
+### Discussion Topics
+
+#### 1. Bootstrap Prompt for New Sessions
+User wanted a single prompt to paste into a fresh Claude Code session that:
+- Loads both `~/.claude/CLAUDE.md` (global config) and project `CLAUDE.md`
+- Discovers MCP config and CLI code
+- Skips the discovery phase so the agent starts productive immediately
+
+**Recommended bootstrap prompt:**
+```
+Read ~/.claude/CLAUDE.md to understand your full toolkit (agents, commands, rules, hooks, skills). Then read the project CLAUDE.md at /home/user/everything-claude-code/CLAUDE.md for repo context. I want to connect to Monarch Money - check the MCP config at mcp-configs/mcp-servers.json and the CLI code at mmoney_cli/ to understand what's already built, then walk me through what I need to set up to get a live connection working.
+```
+
+#### 2. Session ID Inquiry
+User asked for the current session ID to hook into it.
+- Short session ID (branch suffix): `SJjFj`
+- Full session ID: available from browser URL bar (`https://claude.ai/code/session_XXXXX`)
+
+#### 3. Session History Persistence
+User requested saving full session context so future sessions can scrape it.
+- Appended to this file (`sessions/2026-02-16.tmp`)
+
+### Key Takeaways
+- User is building a workflow where new sessions can cold-start with full context
+- Sessions directory is the canonical place for cross-session memory
+- Bootstrap prompts eliminate agent ramp-up time
+- The `CLAUDE.md` files (global + project) are the primary context sources
+
+### Files Referenced
+- `~/.claude/CLAUDE.md` — global agent/rules/hooks config
+- `/home/user/everything-claude-code/CLAUDE.md` — project context
+- `mcp-configs/mcp-servers.json` — MCP server configs
+- `mmoney_cli/` — Monarch Money CLI
+- `sessions/2026-02-16.tmp` — this file
