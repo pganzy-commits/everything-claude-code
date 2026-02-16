@@ -44,5 +44,34 @@
 - 03512f7 chore: remove pycache from tracking
 - c37d458 docs: add CLAUDE.md for session continuity
 
-## Open items / next steps
-- None — clean working tree, everything pushed
+## Session 2 — Moving to Private Repo
+
+### Context
+- User is on **Windows** and wants to move this project to a private GitHub repo
+- Installed GitHub CLI on Windows via `winget install GitHub.cli`
+- Authenticated with `gh auth login` on their Windows machine
+
+### Git remotes (in sandbox)
+- `origin` → `pganzy-commits/everything-claude-code` (public, via local proxy)
+- `private` → `https://github.com/pganzy-commits/my-claude-code-setup.git` (added but can't auth from sandbox)
+
+### What's left to do (on user's Windows machine)
+1. Create the private repo if it doesn't exist:
+   ```powershell
+   gh repo create my-claude-code-setup --private
+   ```
+2. Push everything to the private repo:
+   ```powershell
+   cd ~\everything-claude-code
+   git remote add private https://github.com/pganzy-commits/my-claude-code-setup.git
+   git push private --all
+   git push private --tags
+   ```
+3. Remove the branch from the public origin:
+   ```powershell
+   git push origin --delete claude/new-project-setup-SJjFj
+   ```
+
+### Status
+- Sandbox environment cannot authenticate to the private repo
+- User needs to complete the push from their local Windows machine
