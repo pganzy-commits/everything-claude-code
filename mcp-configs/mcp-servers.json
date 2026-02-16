@@ -80,6 +80,11 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/your/projects"],
       "description": "Filesystem operations (set your path)"
+    },
+    "monarch-money": {
+      "command": "/home/user/monarch-venv/bin/python",
+      "args": ["/home/user/monarch-mcp-server/src/monarch_server.py"],
+      "description": "Monarch Money - personal finance tracking, budgets, transactions, accounts"
     }
   },
   "_comments": {
