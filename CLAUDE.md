@@ -16,6 +16,7 @@ mcp-configs/      - MCP server configs (GitHub, Supabase, Vercel, Railway, etc.)
 plugins/          - Plugin ecosystem docs
 examples/         - Example CLAUDE.md, user-CLAUDE.md, statusline.json
 contexts/         - Context files
+sessions/         - Session logs (.tmp) for reference across sessions
 mmoney_cli/       - Monarch Money CLI (Python) - forked from mmoney-cli, shares MCP auth
 tests_mmoney/     - Tests for the Monarch Money CLI
 ```

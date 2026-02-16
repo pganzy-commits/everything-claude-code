@@ -1,0 +1,48 @@
+# Session: 2026-02-16
+# Branch: claude/new-project-setup-SJjFj
+
+## What was done
+
+### Monarch Money CLI
+- Added `mmoney_cli/` — a Python CLI forked from mmoney-cli
+- Shares auth with the Monarch Money MCP server
+- Added test suite in `tests_mmoney/`
+- Configured in `pyproject.toml` as `monarch-cli` package
+
+### Hooks
+- Added strategic-compact hook (`hooks/strategic-compact/`)
+- Added memory-persistence hook (`hooks/memory-persistence/`)
+- Registered both in `hooks/hooks.json`
+
+### Skills
+- Added continuous learning skill (`skills/continuous-learning/`)
+- Added strategic compact skill (`skills/strategic-compact/`)
+
+### MCP
+- Added Monarch Money server config to `mcp-configs/mcp-servers.json`
+
+### Repo Hygiene
+- Added `.gitignore` (Python, env, editor, node artifacts)
+- Removed tracked `__pycache__` and `.pyc` files
+- Added project-root `CLAUDE.md` for session continuity
+
+## Commits (oldest to newest)
+- 45959c3 Initial release: Complete Claude Code configuration collection
+- e57979c Update README with image and guide link
+- d7cf890 Fix formatting in README.md for guide link
+- 6eefb41 Update README with guide reading reminder
+- 62a80df Update README with image and guide link
+- 3c1e7d9 Clarify repository purpose and additional resources
+- 6bf102d feat: add continuous learning skill with session examples
+- 7d3ea0f feat: add strategic compact skill
+- f96ef1e feat: add memory persistence hooks and context files
+- 2d6fd70 feat: add strategic-compact hook and update hooks.json with all hooks
+- fa0928a Enhance README with update section and resources
+- 3076cb4 feat: add Monarch Money MCP server config
+- b93ee7d feat: add Monarch Money CLI (forked from mmoney-cli) with shared MCP auth
+- 893ac48 chore: add .gitignore and remove cached Python files
+- 03512f7 chore: remove pycache from tracking
+- c37d458 docs: add CLAUDE.md for session continuity
+
+## Open items / next steps
+- None — clean working tree, everything pushed

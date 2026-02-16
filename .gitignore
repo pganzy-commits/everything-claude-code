@@ -27,3 +27,7 @@ private/
 *.pyc
 __pycache__/
 *.egg-info/
+
+# Temp files (except session logs)
+*.tmp
+!sessions/*.tmp
