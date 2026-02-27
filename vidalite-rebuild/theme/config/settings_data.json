@@ -1,0 +1,20 @@
+{
+  "current": {
+    "color_black": "#000000",
+    "color_off_white": "#e7e1d1",
+    "color_grey": "#dddfe2",
+    "color_white": "#ffffff",
+    "color_brown": "#705b48",
+    "font_heading": "cormorant_garamond_n3",
+    "font_body": "inter_n4",
+    "show_trade_cta": true,
+    "trade_cta_text": "Trade Program",
+    "trade_cta_url": "/pages/trade",
+    "newsletter_heading": "Stay Illuminated",
+    "newsletter_text": "New collections, project features, and design insights delivered to your inbox.",
+    "social_instagram": "",
+    "social_pinterest": "",
+    "social_facebook": "",
+    "social_linkedin": ""
+  }
+}

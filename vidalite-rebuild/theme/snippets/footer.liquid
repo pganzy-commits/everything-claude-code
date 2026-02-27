@@ -1,0 +1,339 @@
+{%- comment -%}
+  VidaLite — Site Footer
+  Dark section with newsletter, navigation, partner logos, contact info
+{%- endcomment -%}
+
+<footer class="site-footer section--dark">
+  <div class="container">
+
+    {%- comment -%} Newsletter Section {%- endcomment -%}
+    <div class="site-footer__newsletter">
+      <h2 class="site-footer__newsletter-heading">
+        {{ settings.newsletter_heading | default: 'Stay Illuminated' }}
+      </h2>
+      <p class="site-footer__newsletter-text">
+        {{ settings.newsletter_text | default: 'New collections, project features, and design insights delivered to your inbox.' }}
+      </p>
+      <form class="site-footer__newsletter-form" action="/contact#contact_form" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="customer">
+        <input type="hidden" name="utf8" value="✓">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="site-footer__newsletter-field">
+          <input
+            type="email"
+            name="contact[email]"
+            placeholder="Your email address"
+            required
+            aria-label="Email address for newsletter"
+            class="site-footer__newsletter-input"
+          >
+          <button type="submit" class="site-footer__newsletter-btn btn btn--inverse">
+            Subscribe
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="site-footer__divider"></div>
+
+    {%- comment -%} Footer Grid {%- endcomment -%}
+    <div class="site-footer__grid">
+
+      {%- comment -%} Brand Column {%- endcomment -%}
+      <div class="site-footer__col site-footer__col--brand">
+        <span class="site-footer__logo">VidaLite</span>
+        <p class="site-footer__tagline">
+          Modern lighting for spaces that inspire. Designed for architects, designers, and discerning homeowners.
+        </p>
+        <div class="site-footer__social">
+          {%- if settings.social_instagram != blank -%}
+            <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="5"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          {%- endif -%}
+          {%- if settings.social_pinterest != blank -%}
+            <a href="{{ settings.social_pinterest }}" target="_blank" rel="noopener" aria-label="Pinterest">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.38 9.29-.09-.79-.17-2 .04-2.87.18-.78 1.17-4.97 1.17-4.97s-.3-.6-.3-1.48c0-1.39.81-2.43 1.81-2.43.85 0 1.27.64 1.27 1.41 0 .86-.55 2.14-.83 3.33-.24 1 .5 1.81 1.48 1.81 1.78 0 3.14-1.87 3.14-4.58 0-2.39-1.72-4.07-4.18-4.07-2.85 0-4.52 2.14-4.52 4.35 0 .86.33 1.78.75 2.28.08.1.09.19.07.29-.08.31-.25 1-.28 1.14-.05.19-.15.23-.35.14-1.31-.61-2.13-2.53-2.13-4.07 0-3.31 2.41-6.36 6.95-6.36 3.64 0 6.48 2.6 6.48 6.07 0 3.62-2.28 6.54-5.45 6.54-1.07 0-2.07-.55-2.41-1.21l-.66 2.5c-.24.91-.89 2.06-1.32 2.76A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10z"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- comment -%} Shop Column {%- endcomment -%}
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-heading">Shop</h3>
+        <ul class="site-footer__col-list">
+          <li><a href="/collections">All Collections</a></li>
+          <li><a href="/collections/shura">Shura</a></li>
+          <li><a href="/collections/hikari">Hikari</a></li>
+          <li><a href="/collections/orbita">Orbita</a></li>
+          <li><a href="/collections/maor">Ma'or</a></li>
+          <li><a href="/collections/all">Shop All</a></li>
+        </ul>
+      </div>
+
+      {%- comment -%} Company Column {%- endcomment -%}
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-heading">Company</h3>
+        <ul class="site-footer__col-list">
+          <li><a href="/pages/about">About VidaLite</a></li>
+          <li><a href="/pages/projects">Projects</a></li>
+          <li><a href="/pages/trade">Trade Program</a></li>
+          <li><a href="/blogs/living-lite-lite-up-your-life">Blog</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      {%- comment -%} Support Column {%- endcomment -%}
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-heading">Support</h3>
+        <ul class="site-footer__col-list">
+          <li><a href="/policies/shipping-policy">Shipping</a></li>
+          <li><a href="/policies/refund-policy">Returns & Refunds</a></li>
+          <li><a href="/pages/warranty">Warranty Guarantee</a></li>
+          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      {%- comment -%} Contact Column {%- endcomment -%}
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-heading">Contact</h3>
+        <ul class="site-footer__col-list">
+          <li><a href="mailto:cs@vidalite.co">cs@vidalite.co</a></li>
+          <li><a href="tel:+19293037893">929-303-7893</a></li>
+          <li>Mon-Fri, 9:00 AM - 5:30 PM EST</li>
+        </ul>
+      </div>
+    </div>
+
+    {%- comment -%} Retail Partners {%- endcomment -%}
+    <div class="site-footer__partners">
+      <span class="site-footer__partners-label">Available at</span>
+      <div class="site-footer__partners-logos">
+        {%- comment -%} [FOUNDER TO PROVIDE] Retail partner logo images. Using text placeholders. {%- endcomment -%}
+        <span class="site-footer__partner-logo">Home Depot</span>
+        <span class="site-footer__partner-logo">Wayfair</span>
+        <span class="site-footer__partner-logo">Amazon</span>
+        <span class="site-footer__partner-logo">Target</span>
+        <span class="site-footer__partner-logo">Lumens</span>
+      </div>
+    </div>
+
+    <div class="site-footer__divider"></div>
+
+    {%- comment -%} Bottom Bar {%- endcomment -%}
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+      </p>
+      <div class="site-footer__payment">
+        {%- comment -%} Shopify payment icons render here {%- endcomment -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-8);
+  }
+
+  /* Newsletter */
+  .site-footer__newsletter {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--space-12);
+  }
+
+  .site-footer__newsletter-heading {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-light);
+    color: var(--color-off-white);
+    margin-bottom: var(--space-4);
+  }
+
+  .site-footer__newsletter-text {
+    font-size: var(--text-base);
+    color: rgba(231, 225, 209, 0.7);
+    margin-bottom: var(--space-6);
+  }
+
+  .site-footer__newsletter-field {
+    display: flex;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .site-footer__newsletter-input {
+    flex: 1;
+    padding: var(--space-3) var(--space-4);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
+    color: var(--color-white);
+    font-size: var(--text-sm);
+  }
+
+  .site-footer__newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .site-footer__newsletter-input:focus {
+    outline: none;
+    border-color: var(--color-brown);
+  }
+
+  .site-footer__newsletter-btn {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+  }
+
+  /* Divider */
+  .site-footer__divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: var(--space-8) 0;
+  }
+
+  /* Grid */
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+
+  .site-footer__logo {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-wide);
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .site-footer__tagline {
+    font-size: var(--text-sm);
+    color: rgba(231, 225, 209, 0.6);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .site-footer__social {
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  .site-footer__social a {
+    color: rgba(231, 225, 209, 0.6);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .site-footer__social a:hover {
+    color: var(--color-off-white);
+  }
+
+  .site-footer__col-heading {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-off-white);
+    margin-bottom: var(--space-4);
+  }
+
+  .site-footer__col-list li {
+    margin-bottom: var(--space-2);
+  }
+
+  .site-footer__col-list a,
+  .site-footer__col-list li {
+    font-size: var(--text-sm);
+    color: rgba(231, 225, 209, 0.6);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .site-footer__col-list a:hover {
+    color: var(--color-off-white);
+  }
+
+  /* Partners */
+  .site-footer__partners {
+    text-align: center;
+    padding: var(--space-8) 0;
+  }
+
+  .site-footer__partners-label {
+    display: block;
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: rgba(231, 225, 209, 0.4);
+    margin-bottom: var(--space-4);
+  }
+
+  .site-footer__partners-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .site-footer__partner-logo {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: rgba(231, 225, 209, 0.4);
+  }
+
+  /* Bottom */
+  .site-footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-footer__copyright {
+    font-size: var(--text-xs);
+    color: rgba(231, 225, 209, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .site-footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+    }
+
+    .site-footer__col--brand {
+      grid-column: 1 / -1;
+    }
+
+    .site-footer__newsletter-field {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .site-footer__newsletter-input {
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .site-footer__bottom {
+      flex-direction: column;
+      gap: var(--space-4);
+      text-align: center;
+    }
+  }
+</style>

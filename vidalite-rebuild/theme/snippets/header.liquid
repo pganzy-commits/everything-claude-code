@@ -1,0 +1,490 @@
+{%- comment -%}
+  VidaLite — Site Header
+  Minimal nav: Shop, Projects, Trade, About, Contact
+  Includes: Logo, nav links, trade CTA, cart, mobile menu
+{%- endcomment -%}
+
+<header class="site-header" data-header>
+  <div class="site-header__inner container--wide">
+
+    {%- comment -%} Mobile Menu Toggle {%- endcomment -%}
+    <button class="site-header__menu-toggle hide-desktop" aria-label="Open menu" data-menu-toggle>
+      <span class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    {%- comment -%} Logo {%- endcomment -%}
+    <div class="site-header__logo">
+      <a href="/" aria-label="{{ shop.name }} - Home">
+        {%- if settings.logo -%}
+          <img
+            src="{{ settings.logo | image_url: width: 200 }}"
+            alt="{{ shop.name }}"
+            width="200"
+            height="40"
+            loading="eager"
+            class="site-header__logo-img"
+          >
+        {%- else -%}
+          <span class="site-header__logo-text">VidaLite</span>
+        {%- endif -%}
+      </a>
+    </div>
+
+    {%- comment -%} Main Navigation {%- endcomment -%}
+    <nav class="site-header__nav hide-mobile" aria-label="Main navigation">
+      <ul class="site-header__nav-list">
+        <li class="site-header__nav-item">
+          <a href="/collections" class="site-header__nav-link{% if template.name == 'collection' or template.name == 'list-collections' %} is-active{% endif %}">
+            Shop
+          </a>
+          {%- comment -%} Dropdown for collections {%- endcomment -%}
+          <div class="site-header__dropdown" data-dropdown>
+            <div class="site-header__dropdown-inner container">
+              <div class="site-header__dropdown-grid">
+                <div class="site-header__dropdown-col">
+                  <span class="site-header__dropdown-heading">Collections</span>
+                  <ul class="site-header__dropdown-list">
+                    {%- for collection in collections -%}
+                      {%- unless collection.handle == 'all' or collection.handle == 'frontpage' -%}
+                      <li>
+                        <a href="{{ collection.url }}">{{ collection.title }}</a>
+                      </li>
+                      {%- endunless -%}
+                    {%- endfor -%}
+                  </ul>
+                </div>
+                <div class="site-header__dropdown-col">
+                  <span class="site-header__dropdown-heading">By Type</span>
+                  <ul class="site-header__dropdown-list">
+                    <li><a href="/collections/all/track-lighting-kits">Track Lighting</a></li>
+                    <li><a href="/collections/all/pendants">Pendants</a></li>
+                    <li><a href="/collections/all/floor-lamps">Floor Lamps</a></li>
+                    <li><a href="/collections/all/wall-sconces">Wall Sconces</a></li>
+                    <li><a href="/collections/all/flush-mounts">Flush Mounts</a></li>
+                  </ul>
+                </div>
+                <div class="site-header__dropdown-featured">
+                  <span class="site-header__dropdown-heading">Featured</span>
+                  <a href="/collections/shura" class="site-header__dropdown-feature-card">
+                    {%- assign shura = collections['shura'] -%}
+                    {%- if shura.image -%}
+                      <img src="{{ shura.image | image_url: width: 400 }}" alt="Shura Collection" loading="lazy">
+                    {%- endif -%}
+                    <span>Shura Collection — Best Seller</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="site-header__nav-item">
+          <a href="/pages/projects" class="site-header__nav-link{% if page.handle == 'projects' %} is-active{% endif %}">
+            Projects
+          </a>
+        </li>
+        <li class="site-header__nav-item">
+          <a href="/pages/about" class="site-header__nav-link{% if page.handle == 'about' %} is-active{% endif %}">
+            About
+          </a>
+        </li>
+        <li class="site-header__nav-item">
+          <a href="/pages/contact" class="site-header__nav-link{% if page.handle == 'contact' %} is-active{% endif %}">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    {%- comment -%} Header Actions {%- endcomment -%}
+    <div class="site-header__actions">
+      {%- if settings.show_trade_cta -%}
+        <a href="{{ settings.trade_cta_url | default: '/pages/trade' }}" class="btn btn--sm btn--secondary site-header__trade-btn hide-mobile">
+          {{ settings.trade_cta_text | default: 'Trade Program' }}
+        </a>
+      {%- endif -%}
+
+      <a href="/search" class="site-header__action-link" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="9" cy="9" r="6.5"/>
+          <line x1="14" y1="14" x2="18" y2="18"/>
+        </svg>
+      </a>
+
+      <a href="/cart" class="site-header__action-link site-header__cart" aria-label="Cart ({{ cart.item_count }})">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M5 7h10l-1.5 8H6.5L5 7z"/>
+          <path d="M7.5 7V5a2.5 2.5 0 015 0v2"/>
+        </svg>
+        {%- if cart.item_count > 0 -%}
+          <span class="site-header__cart-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+    </div>
+  </div>
+
+  {%- comment -%} Mobile Navigation Drawer {%- endcomment -%}
+  <div class="mobile-nav" data-mobile-nav aria-hidden="true">
+    <div class="mobile-nav__overlay" data-mobile-nav-close></div>
+    <div class="mobile-nav__drawer">
+      <div class="mobile-nav__header">
+        <span class="site-header__logo-text">VidaLite</span>
+        <button class="mobile-nav__close" aria-label="Close menu" data-mobile-nav-close>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="6" y1="6" x2="18" y2="18"/>
+            <line x1="18" y1="6" x2="6" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-nav__body" aria-label="Mobile navigation">
+        <ul class="mobile-nav__list">
+          <li><a href="/collections" class="mobile-nav__link">Shop All</a></li>
+          {%- for collection in collections limit: 8 -%}
+            {%- unless collection.handle == 'all' or collection.handle == 'frontpage' -%}
+            <li><a href="{{ collection.url }}" class="mobile-nav__link mobile-nav__link--sub">{{ collection.title }}</a></li>
+            {%- endunless -%}
+          {%- endfor -%}
+          <li><a href="/pages/projects" class="mobile-nav__link">Projects</a></li>
+          <li><a href="/pages/about" class="mobile-nav__link">About</a></li>
+          <li><a href="/pages/contact" class="mobile-nav__link">Contact</a></li>
+        </ul>
+        <div class="mobile-nav__footer">
+          <a href="/pages/trade" class="btn btn--primary btn--lg" style="width: 100%;">Trade Program</a>
+          <div class="mobile-nav__contact">
+            <a href="mailto:cs@vidalite.co">cs@vidalite.co</a>
+            <a href="tel:+19293037893">929-303-7893</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background-color: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color var(--duration-normal) ease,
+                box-shadow var(--duration-normal) ease;
+  }
+
+  .site-header.is-scrolled {
+    background-color: rgba(231, 225, 209, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .site-header__logo-text {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .site-header__logo-img {
+    height: 32px;
+    width: auto;
+  }
+
+  .site-header__nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  .site-header__nav-link {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    padding: var(--space-2) 0;
+    position: relative;
+  }
+
+  .site-header__nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-black);
+    transition: width var(--duration-normal) var(--ease-out);
+  }
+
+  .site-header__nav-link:hover::after,
+  .site-header__nav-link.is-active::after {
+    width: 100%;
+  }
+
+  /* Dropdown */
+  .site-header__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity var(--duration-normal) var(--ease-out),
+                visibility var(--duration-normal) var(--ease-out),
+                transform var(--duration-normal) var(--ease-out);
+    pointer-events: none;
+  }
+
+  .site-header__nav-item:hover .site-header__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .site-header__dropdown-inner {
+    padding: var(--space-8) var(--gutter);
+  }
+
+  .site-header__dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: var(--space-8);
+  }
+
+  .site-header__dropdown-heading {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+  }
+
+  .site-header__dropdown-list li {
+    margin-bottom: var(--space-2);
+  }
+
+  .site-header__dropdown-list a {
+    font-size: var(--text-sm);
+    color: var(--color-text-primary);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .site-header__dropdown-list a:hover {
+    color: var(--color-brown);
+  }
+
+  .site-header__dropdown-feature-card {
+    display: block;
+  }
+
+  .site-header__dropdown-feature-card img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin-bottom: var(--space-3);
+  }
+
+  .site-header__dropdown-feature-card span {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+  }
+
+  /* Actions */
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .site-header__action-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: opacity var(--duration-fast) ease;
+  }
+
+  .site-header__action-link:hover {
+    opacity: 0.6;
+  }
+
+  .site-header__cart {
+    position: relative;
+  }
+
+  .site-header__cart-count {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-brown);
+    color: var(--color-white);
+    font-size: 10px;
+    font-weight: var(--weight-bold);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-header__trade-btn {
+    font-size: var(--text-xs);
+  }
+
+  /* Hamburger */
+  .site-header__menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 20px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--color-black);
+    transition: transform var(--duration-normal) var(--ease-out);
+  }
+
+  /* Mobile Nav */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-modal);
+    pointer-events: none;
+  }
+
+  .mobile-nav.is-open {
+    pointer-events: auto;
+  }
+
+  .mobile-nav__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-out);
+  }
+
+  .mobile-nav.is-open .mobile-nav__overlay {
+    opacity: 1;
+  }
+
+  .mobile-nav__drawer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%;
+    max-width: 400px;
+    height: 100%;
+    background-color: var(--color-bg-primary);
+    transform: translateX(-100%);
+    transition: transform var(--duration-normal) var(--ease-out);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .mobile-nav.is-open .mobile-nav__drawer {
+    transform: translateX(0);
+  }
+
+  .mobile-nav__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--gutter);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-nav__body {
+    flex: 1;
+    padding: var(--space-6) var(--gutter);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mobile-nav__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav__link {
+    display: block;
+    padding: var(--space-3) 0;
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-nav__link--sub {
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    padding-left: var(--space-4);
+    color: var(--color-text-secondary);
+  }
+
+  .mobile-nav__footer {
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-nav__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  @media (min-width: 769px) {
+    .site-header__inner {
+      height: 80px;
+    }
+  }
+</style>

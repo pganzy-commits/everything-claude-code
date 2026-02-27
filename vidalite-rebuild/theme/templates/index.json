@@ -1,0 +1,111 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "Light That Defines Space",
+        "subheading": "Architectural lighting designed for the world's most considered interiors",
+        "button_text": "Explore Collections",
+        "button_url": "/collections",
+        "button_secondary_text": "Trade Program",
+        "button_secondary_url": "/pages/trade",
+        "overlay_opacity": 40
+      }
+    },
+    "brand-statement": {
+      "type": "brand-statement",
+      "settings": {
+        "overline": "VidaLite",
+        "heading": "Where Illumination Meets Architecture",
+        "text": "Every VidaLite fixture begins with a singular question: how does light shape the way we experience a room? Our collections are engineered for precision and designed for beauty — specified by architects and loved by the people who live with them.",
+        "button_text": "Our Story",
+        "button_url": "/pages/about"
+      }
+    },
+    "featured-collections": {
+      "type": "featured-collections",
+      "settings": {
+        "heading": "Collections",
+        "subheading": "Precision-engineered LED fixtures for every application"
+      },
+      "blocks": {
+        "shura": {
+          "type": "collection",
+          "settings": {
+            "collection": "shura",
+            "label": "Best Seller"
+          }
+        },
+        "hikari": {
+          "type": "collection",
+          "settings": {
+            "collection": "hikari"
+          }
+        },
+        "orbita": {
+          "type": "collection",
+          "settings": {
+            "collection": "orbita"
+          }
+        },
+        "maor": {
+          "type": "collection",
+          "settings": {
+            "collection": "maor"
+          }
+        }
+      },
+      "block_order": ["shura", "hikari", "orbita", "maor"]
+    },
+    "split-feature": {
+      "type": "split-feature",
+      "settings": {
+        "overline": "Flagship Collection",
+        "heading": "Shura",
+        "text": "Adjustable track lighting that adapts to your vision. Each head rotates 270° horizontally and 90° vertically, delivering 3000K warm white light exactly where your design demands it. Integrated LED technology rated for 50,000+ hours of maintenance-free performance.",
+        "button_text": "Shop Shura",
+        "button_url": "/collections/shura",
+        "image_position": "left"
+      }
+    },
+    "project-showcase": {
+      "type": "project-showcase",
+      "settings": {
+        "overline": "Installations",
+        "heading": "Specified by Designers. Installed Worldwide.",
+        "text": "See how architects and interior designers are using VidaLite fixtures to define residential, commercial, and hospitality spaces.",
+        "button_text": "View All Projects",
+        "button_url": "/pages/projects"
+      }
+    },
+    "specs-strip": {
+      "type": "specs-strip",
+      "settings": {}
+    },
+    "trade-cta": {
+      "type": "trade-cta",
+      "settings": {
+        "heading": "Designed for the Trade",
+        "text": "Interior designers, architects, and lighting specifiers: access trade pricing, downloadable spec sheets, and dedicated project support.",
+        "button_text": "Apply for Trade Access",
+        "button_url": "/pages/trade"
+      }
+    },
+    "retail-partners": {
+      "type": "retail-partners",
+      "settings": {
+        "heading": "Trusted By"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "brand-statement",
+    "featured-collections",
+    "split-feature",
+    "project-showcase",
+    "specs-strip",
+    "trade-cta",
+    "retail-partners"
+  ]
+}

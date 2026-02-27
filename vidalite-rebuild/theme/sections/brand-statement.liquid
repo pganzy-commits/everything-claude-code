@@ -1,0 +1,86 @@
+{%- comment -%}
+  VidaLite — Brand Statement
+  Warm off-white section with centered text, serif headline, brand positioning.
+{%- endcomment -%}
+
+<section class="brand-statement section section--light" data-section-id="{{ section.id }}">
+  <div class="container container--narrow text-center">
+    <div data-animate>
+      {%- if section.settings.overline != blank -%}
+        <span class="text-overline">{{ section.settings.overline }}</span>
+        <div class="divider divider--center"></div>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="brand-statement__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <p class="brand-statement__text text-body-lg">{{ section.settings.text }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_text != blank -%}
+        <a href="{{ section.settings.button_url }}" class="btn btn--ghost">
+          {{ section.settings.button_text }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .brand-statement__heading {
+    margin-bottom: var(--space-6);
+  }
+
+  .brand-statement__text {
+    color: var(--color-text-secondary);
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-8);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Brand Statement",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "overline",
+      "label": "Overline text",
+      "default": "VidaLite"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Where Illumination Meets Architecture"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Body text",
+      "default": "Every VidaLite fixture begins with a singular question: how does light shape the way we experience a room? Our collections are engineered for precision and designed for beauty — specified by architects and loved by the people who live with them."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Our Story"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Statement"
+    }
+  ]
+}
+{% endschema %}

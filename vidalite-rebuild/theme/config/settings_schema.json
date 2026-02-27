@@ -1,0 +1,130 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "VidaLite Flagship",
+    "theme_version": "1.0.0",
+    "theme_author": "VidaLite",
+    "theme_documentation_url": "",
+    "theme_support_url": "mailto:cs@vidalite.co"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_black",
+        "label": "Black",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_off_white",
+        "label": "Off-White (Primary Background)",
+        "default": "#e7e1d1"
+      },
+      {
+        "type": "color",
+        "id": "color_grey",
+        "label": "Grey",
+        "default": "#dddfe2"
+      },
+      {
+        "type": "color",
+        "id": "color_white",
+        "label": "White",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_brown",
+        "label": "Brown (Accent)",
+        "default": "#705b48"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "cormorant_garamond_n3"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "inter_n4"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest",
+        "label": "Pinterest URL"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin",
+        "label": "LinkedIn URL"
+      }
+    ]
+  },
+  {
+    "name": "Trade Portal",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_trade_cta",
+        "label": "Show Trade CTA in header",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "trade_cta_text",
+        "label": "Trade CTA text",
+        "default": "Trade Program"
+      },
+      {
+        "type": "url",
+        "id": "trade_cta_url",
+        "label": "Trade CTA link"
+      }
+    ]
+  },
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "newsletter_heading",
+        "label": "Newsletter heading",
+        "default": "Stay Illuminated"
+      },
+      {
+        "type": "textarea",
+        "id": "newsletter_text",
+        "label": "Newsletter description",
+        "default": "New collections, project features, and design insights delivered to your inbox."
+      }
+    ]
+  }
+]
